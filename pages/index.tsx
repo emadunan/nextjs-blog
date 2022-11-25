@@ -11,6 +11,9 @@ export default function Home({ allPostsData }) {
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
+        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
+        <meta name="google" content="notranslate" key="notranslate" />
+        <link rel="canonical" href="https://example.com/blog/original-post" key="canonical" />
       </Head>
       <section className={utilStyles.headingMd}>
         <p>Hello, I am Emad. I'm a software developer and a police officer. You can connect me on <a href='https://www.facebook.com/emad.unan'>Facebook</a></p>
@@ -25,7 +28,7 @@ export default function Home({ allPostsData }) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>{title}</Link>
+              <Link href={`/posts/${id}`} passHref>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
